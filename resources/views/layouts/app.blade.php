@@ -34,9 +34,9 @@
         <aside class="w-64 bg-white shadow-md">
             <div class="p-4 h-full">
                 <ul class="space-y-2">
-                    <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-200 text-gray-700">Dashboard</a></li>
-                    <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-200 text-gray-700">Company</a></li>
-                    <li><a href="#" class="block py-2 px-4 rounded hover:bg-gray-200 text-gray-700">Users</a></li>
+                    <li><a href="{{ route('dashboard') }}" class="block py-2 px-4 rounded hover:bg-gray-200 text-gray-700">Dashboard</a></li>
+                    <li><a href="{{ route('tasks.index') }}" class="block py-2 px-4 rounded hover:bg-gray-200 text-gray-700">Tasks</a></li>
+                    <li><a href="{{ route('myProfile.index') }}" class="block py-2 px-4 rounded hover:bg-gray-200 text-gray-700">My Profile</a></li>
                 </ul>
             </div>
         </aside>

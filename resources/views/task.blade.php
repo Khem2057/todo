@@ -36,10 +36,10 @@
                                         <td>{{ $task->title }}</td>
                                         <td>{{ $task->description }}</td>
                                         <td>
-                                            <form action="{{ route('tasks.updateStatus', $task->id) }}" method="POST">
+                                            <form action="{{ route('tasks.updateStatus', $task->id) }}" method="POST" class="border-gray-300 rounded shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
                                                 @csrf
                                                 @method('PUT')
-                                                <select name="status" onchange="this.form.submit()">
+                                                <select name="status" onchange="this.form.submit()" class="rounded w-full">
                                                     <option value="Pending" {{ $task->status == 'Pending' ? 'selected' : '' }}>Pending</option>
                                                     <option value="In Progress" {{ $task->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
                                                     <option value="Completed" {{ $task->status == 'Completed' ? 'selected' : '' }}>Completed</option>

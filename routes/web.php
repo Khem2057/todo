@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
     // Handles form submission
     Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::put('/updateStatus/{id}', [TaskController::class, 'updateStatus'])->name('tasks.updateStatus');
 
     Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::get('/myProfile', [MyProfileController::class, 'index'])->name('myProfile.index');

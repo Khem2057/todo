@@ -35,7 +35,18 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $task->title }}</td>
                                         <td>{{ $task->description }}</td>
-                                        <td>{{ $task->status }}</td>
+                                        <td>
+                                            <form action="{{ route('tasks.updateStatus', $task->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <select name="status" onchange="this.form.submit()">
+                                                    <option value="Pending" {{ $task->status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                    <option value="In Progress" {{ $task->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                                                    <option value="Completed" {{ $task->status == 'Completed' ? 'selected' : '' }}>Completed</option>
+                                                </select>
+                                                
+                                            </form>
+                                        </td>
                                         <td class="flex gap-2">
                                             <form action="{{ route('tasks.edit', $task->id) }}" >
                                                 @csrf

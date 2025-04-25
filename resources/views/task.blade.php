@@ -37,9 +37,8 @@
                                         <td>{{ $task->description }}</td>
                                         <td>{{ $task->status }}</td>
                                         <td class="flex gap-2">
-                                            <form action="{{ route('tasks.edit', $task->id) }}" method="get">
+                                            <form action="{{ route('tasks.edit', $task->id) }}" >
                                                 @csrf
-                                       
                                                 <button type="submit" class="text-white hover:bg-green-800 bg-green-600 p-2 rounded m-1">Update</button>
                                             </form>
                                             <form action="{{ route('tasks.destroy', $task->id) }}" method="post">

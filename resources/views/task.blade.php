@@ -18,8 +18,16 @@
                         </form>
                     </div>
 
+                    
+                    @if (session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                            <strong class="font-bold">Success!</strong>
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    @endif
+
                     <div>
-                        <table class="table table-bordered border-dark">
+                        <table class="table table-bordered border-gray-300">
                             <thead>
                                 <tr>
                                     <th>Sn</th>
@@ -39,7 +47,7 @@
                                             <form action="{{ route('tasks.updateStatus', $task->id) }}" method="POST" class="border-gray-300 rounded shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
                                                 @csrf
                                                 @method('PUT')
-                                                <select name="status" onchange="this.form.submit()" class="rounded w-full">
+                                                <select name="status" onchange="this.form.submit()" class="rounded w-full border-gray-300">
                                                     <option value="Pending" {{ $task->status == 'Pending' ? 'selected' : '' }}>Pending</option>
                                                     <option value="In Progress" {{ $task->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
                                                     <option value="Completed" {{ $task->status == 'Completed' ? 'selected' : '' }}>Completed</option>

@@ -22,6 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+    Route::post('/tasks', [TaskController::class, 'create'])->name('tasks.create');
+    Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+    Route::patch('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::get('/myProfile', [MyProfileController::class, 'index'])->name('myProfile.index');
 });
 

@@ -8,8 +8,9 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     public function index(){
-        $tasks = Task::all();
-
+        
+        $user = \Auth::user();
+        $tasks = Task::where('user_id', $user->id)->get();
         return view('task', compact('tasks'));
     }
 
@@ -41,6 +42,25 @@ class TaskController extends Controller
     public function edit($id){
         $task = Task::find($id);
         return view('editTask', compact('task'));
+    }
+
+    public function update(Request $request, $id){
+        $validator = validator($request->all(), [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+        ]);
+        
+        if($validator->fails()){
+
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $task = Task::find($id);
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->save();
+
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
     }
 
     public function destroy($id){

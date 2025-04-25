@@ -16,15 +16,15 @@
                             <h2 class="text-xl text-center">Total Tasks</h2>
                         </div>
                         <div class="bg-gray-100 p-8 rounded-lg shadow w-1/4">
-                            <p class="text-3xl text-center font-semibold">{{ $pendingTasks > 0 ? $totalTasks : 0 }}</p>
+                            <p class="text-3xl text-center font-semibold">{{ $pendingTasks > 0 ? $pendingTasks : 0 }}</p>
                             <h2 class="text-xl text-center">Pending</h2>
                         </div>
                         <div class="bg-gray-100 p-8 rounded-lg shadow w-1/4">
-                            <p class="text-3xl text-center font-semibold">{{ $inProgressTasks > 0 ? $totalTasks : 0 }}</p>
+                            <p class="text-3xl text-center font-semibold">{{ $inProgressTasks > 0 ? $inProgressTasks : 0 }}</p>
                             <h2 class="text-xl text-center">In Progress</h2>
                         </div>
                         <div class="bg-gray-100 p-8 rounded-lg shadow w-1/4">
-                            <p class="text-3xl text-center font-semibold">{{ $completedTasks > 0 ? $totalTasks : 0 }}</p>
+                            <p class="text-3xl text-center font-semibold">{{ $completedTasks > 0 ? $completedTasks : 0 }}</p>
                             <h2 class="text-xl text-center">Completed</h2>
                         </div>
                         
